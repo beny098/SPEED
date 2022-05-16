@@ -23,6 +23,15 @@
   color: white;
 }
 
+.submitTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -45,4 +54,8 @@
   max-width: 500px;
   min-height: 1000px;
   background-color: #c3ffe8;
+}
+
+.textField {
+  min-width: 300px;
 }
