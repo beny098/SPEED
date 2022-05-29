@@ -45,23 +45,29 @@ class ShowBookList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Books List</h2>
+              <h2 className="display-4 text-center">SPEED Application</h2>
             </div>
-
-            <div className="col-md-11">
-              <Link to="/create-book" className="btn btn-outline-warning float-right">
-                + Add New Book
-              </Link>
-              <br />
-              <br />
-              <hr />
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?"></input>
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+              </button>
             </div>
+          
+            
 
           </div>
 
           <div className="list">
                 {bookList}
           </div>
+          <div className="button">
+              <Link to="/create-book" class="addButton">
+                + Add New Journal
+              </Link>
+              <br />
+              <br />
+            </div>
         </div>
       </div>
     );

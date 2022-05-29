@@ -59,13 +59,13 @@ class CreateBook extends Component {
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show BooK List
+                  Show Journal List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Add Book</h1>
+              <h1 className="display-4 text-center">Add Journal</h1>
               <p className="lead text-center">
-                  Create new book
+                  Create New Journal
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
