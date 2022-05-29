@@ -1,75 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <div class="body">
-        <body>
-          <header className="App-header">
-            <p>SPEED Database</p>
-          </header>
-          <div class="submit">
-            <header className="submitTitle">
-              <p>Add Publication</p>
-            </header>
+import CreateBook from './components/CreateBook';
+import ShowBookList from './components/ShowBookList';
+import ShowBookDetails from './components/ShowBookDetails';
+import UpdateBookInfo from './components/UpdateBookInfo';
 
-            <form>
-              <label class="textBox">
-                Title:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Author(s):
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Journal Name:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Publication Year:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Volume:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Number:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                Pages:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <label>
-                DOI:
-                <div></div>
-                <input type="text" class="textField" name="title" />
-              </label>
-              <p></p>
-              <input type="submit" />
-            </form>
-          </div>
-        </body>
-      </div>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route exact path='/' component={ShowBookList} />
+          <Route path='/create-book' component={CreateBook} />
+          <Route path='/edit-book/:id' component={UpdateBookInfo} />
+          <Route path='/show-book/:id' component={ShowBookDetails} />
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
