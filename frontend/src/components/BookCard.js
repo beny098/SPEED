@@ -6,6 +6,7 @@ const BookCard = (props) => {
     const  book  = props.book;
 
     return(
+        /*
         <div className="card-container">
             <div className="desc">
                 <h2>
@@ -17,6 +18,20 @@ const BookCard = (props) => {
                 <p>{book.description}</p>
             </div>
         </div>
+        */
+       <div class="booktable">
+        <table>
+            <tbody>
+                <tr>
+                    <td><Link class="entryCard" to={`/show-book/${book._id}`}>{ book.title }</Link></td>
+                    <td>{ book.author }</td>
+                    <td>{ book.description }</td>
+                    <td>{ book.isbn }</td>
+                    <td>{ book.publisher }</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
     )
 };
 
