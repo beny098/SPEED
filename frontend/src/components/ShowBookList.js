@@ -47,20 +47,16 @@ class ShowBookList extends Component {
               <br />
               <h2 className="display-4 text-center">SPEED Application</h2>
             </div>
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="What are you looking for?"></input>
-                <button type="submit" class="searchButton">
-                  <i class="fa fa-search"></i>
-              </button>
-            </div>
           
-            
-
+          </div>
+          <div class="search">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Journal..." class="searchbox"></input>
           </div>
 
-          <div className="list">
-                {bookList}
+          <div>
+            {bookList}
           </div>
+
           <div className="button">
               <Link to="/create-book" class="addButton">
                 + Add New Journal

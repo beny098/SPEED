@@ -113,4 +113,23 @@
 .search {
   display: flex;
   justify-content: center;
+  padding: 20px;
+}
+
+.searchbox {
+  min-width: 500px;
+  min-height: 35px;
+}
+
+table, th, td {
+  border: 1px solid;
+  min-width: 200px;
+  max-width: 200px;
+  border-bottom: none;
+  min-height: 35px;
+}
+
+.bookingtable {
+  display: flex;
+  justify-content: center;
 }
