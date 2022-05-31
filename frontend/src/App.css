@@ -133,3 +133,22 @@ table, th, td {
   display: flex;
   justify-content: center;
 }
+
+.toptablepadding {
+  padding: 10px;
+}
+
+.link {
+  padding: 30px;
+}
+
+.menu {
+  margin: auto;
+  width: 50%;
+  border: 2px solid orange;
+  padding: 10px;
+}
+
+.topmenu {
+  padding-bottom: 30px;
+}

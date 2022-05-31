@@ -19,7 +19,7 @@ const BookCard = (props) => {
             </div>
         </div>
         */
-       <div class="booktable">
+       <div class="bookingtable">
         <table>
             <tbody>
                 <tr>
@@ -28,6 +28,7 @@ const BookCard = (props) => {
                     <td>{ book.description }</td>
                     <td>{ book.isbn }</td>
                     <td>{ book.publisher }</td>
+                    <td>{ book.published_date }</td>
                 </tr>
             </tbody>
         </table>

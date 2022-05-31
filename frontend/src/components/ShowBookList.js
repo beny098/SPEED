@@ -42,7 +42,14 @@ class ShowBookList extends Component {
     return (
       <div className="ShowBookList">
         <div className="container">
+        <div class="topmenu"></div>
           <div className="row">
+            <div class="menu">
+              <a class="link">Home</a>
+              <a class="link">Moderator</a>
+              <a class="link">Analyzer</a>
+              <a class="link">Administrator</a>
+            </div>
             <div className="col-md-12">
               <br />
               <h2 className="display-4 text-center">SPEED Application</h2>
@@ -53,9 +60,13 @@ class ShowBookList extends Component {
             <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Journal..." class="searchbox"></input>
           </div>
 
+          <div class="toptablepadding"></div>
+
           <div>
             {bookList}
           </div>
+
+          <div class="toptablepadding"></div>
 
           <div className="button">
               <Link to="/create-book" class="addButton">
