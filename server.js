@@ -31,7 +31,7 @@ if (process.env.env === "prod") {
 
     // any request that is not caught by the above routes, send back index.html
     server.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+        res.sendFile(path.join(__dirname, "frontend/src", "index.html"));
     });
 } else {
     server.get("/", (req, res) => {
