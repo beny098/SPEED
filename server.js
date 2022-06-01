@@ -31,7 +31,7 @@ if (process.env.env === "prod") {
     });
 } else {
     server.get("/", (req, res) => {
-        res.send("Api running!");
+        res.send("Server running!");
     });
 }
 
