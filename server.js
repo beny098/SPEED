@@ -22,7 +22,7 @@ server.use(express.json({ extended: false }));
 
 server.use("/api/books", SPEED);
 
-if (process.env.env === "prod") {
+if (config.get("env") === "prod") {
     server.use(express.static(path.join(__dirname, "frontend/build")));
 
     // any request that is not caught by the above routes, send back index.html
