@@ -1,48 +1,51 @@
-import React, { Component } from 'react';
-import '../App.css';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import BookCard from './BookCard';
+import React, { Component } from "react";
+import "../App.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import BookCard from "./BookCard";
 
+/**
+ * @author @JimmyCSH
+ *
+ * The ShowBookList script is used to display the list of books
+ * saved by the user on the application.
+ */
 class ShowBookList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
     };
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/books')
-      .then(res => {
+      .get("http://localhost:8082/api/books")
+      .then((res) => {
         this.setState({
-          books: res.data
-        })
+          books: res.data,
+        });
       })
-      .catch(err =>{
-        console.log('Error from ShowBookList');
-      })
-  };
-
+      .catch((err) => {
+        console.log("Error from ShowBookList");
+      });
+  }
 
   render() {
     const books = this.state.books;
     console.log("PrintBook: " + books);
     let bookList;
 
-    if(!books) {
+    if (!books) {
       bookList = "there is no book record!";
     } else {
-      bookList = books.map((book, k) =>
-        <BookCard book={book} key={k} />
-      );
+      bookList = books.map((book, k) => <BookCard book={book} key={k} />);
     }
 
     return (
       <div className="ShowBookList">
         <div className="container">
-        <div class="topmenu"></div>
+          <div class="topmenu"></div>
           <div className="row">
             <div class="menu">
               <a class="link">Home</a>
@@ -54,27 +57,30 @@ class ShowBookList extends Component {
               <br />
               <h2 className="display-4 text-center">SPEED Application</h2>
             </div>
-          
           </div>
           <div class="search">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Journal..." class="searchbox"></input>
+            <input
+              type="text"
+              id="myInput"
+              onkeyup="myFunction()"
+              placeholder="Search Journal..."
+              class="searchbox"
+            ></input>
           </div>
 
           <div class="toptablepadding"></div>
 
-          <div>
-            {bookList}
-          </div>
+          <div>{bookList}</div>
 
           <div class="toptablepadding"></div>
 
           <div className="button">
-              <Link to="/create-book" class="addButton">
-                + Add New Journal
-              </Link>
-              <br />
-              <br />
-            </div>
+            <Link to="/create-book" class="addButton">
+              + Add New Journal
+            </Link>
+            <br />
+            <br />
+          </div>
         </div>
       </div>
     );
