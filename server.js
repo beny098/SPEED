@@ -1,12 +1,18 @@
 const express = require("express");
-
 const server = express();
+const SPEED = require("./routes/api/books.js");
+const connectDB = require("./config/db");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const path = require("path");
+
+
 
 server.get('/', (req, res) => {
     res.send("API is running")
 })
 
-server.listen(5000, console.log("Server is Working and Listening PORT 5000"));
+//server.listen(5000, console.log("Server is Working and Listening PORT 5000"));
 
 connectDB();
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +24,7 @@ server.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 server.use(express.json({ extended: false }));
 
-server.use("/api/speed", SPEED);
+server.use("/api/books.js", SPEED);
 
 if (process.env.env === "prod") {
     server.use(express.static(path.join(__dirname, "frontend/build")));
