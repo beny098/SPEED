@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
-import '../App.css';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import BookCard from './BookCard';
+import React, { Component } from "react";
+import "../App.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import BookCard from "./BookCard";
 
+/**
+ * @author @JimmyCSH
+ *
+ * The ShowBookList script is used to display the list of books
+ * saved by the user on the application.
+ */
 class ShowBookList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
     };
   }
 
@@ -17,8 +23,8 @@ class ShowBookList extends Component {
       .get('https://cise-speed-project.herokuapp.com/api/books')
       .then(res => {
         this.setState({
-          books: res.data
-        })
+          books: res.data,
+        });
       })
       .catch(err => {
         console.log('Error from ShowBookList');
@@ -34,9 +40,7 @@ class ShowBookList extends Component {
     if (!books) {
       bookList = "there is no book record!";
     } else {
-      bookList = books.map((book, k) =>
-        <BookCard book={book} key={k} />
-      );
+      bookList = books.map((book, k) => <BookCard book={book} key={k} />);
     }
 
     return (
@@ -54,17 +58,20 @@ class ShowBookList extends Component {
               <br />
               <h2 className="display-4 text-center">SPEED Application</h2>
             </div>
-
           </div>
           <div class="search">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Journal..." class="searchbox"></input>
+            <input
+              type="text"
+              id="myInput"
+              onkeyup="myFunction()"
+              placeholder="Search Journal..."
+              class="searchbox"
+            ></input>
           </div>
 
           <div class="toptablepadding"></div>
 
-          <div>
-            {bookList}
-          </div>
+          <div>{bookList}</div>
 
           <div class="toptablepadding"></div>
 

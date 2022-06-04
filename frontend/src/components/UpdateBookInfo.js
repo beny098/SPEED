@@ -1,18 +1,24 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import '../App.css';
-
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import "../App.css";
+/**
+ * @author @JimmyCSH
+ *
+ * The following script is used to Update a particular Book's
+ * information. The script communicates with our Backend database
+ * to make changes specified by the user to previously created Books.
+ */
 class UpdateBookInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      isbn: '',
-      author: '',
-      description: '',
-      published_date: '',
-      publisher: ''
+      title: "",
+      isbn: "",
+      author: "",
+      description: "",
+      published_date: "",
+      publisher: "",
     };
   }
 
@@ -28,19 +34,19 @@ class UpdateBookInfo extends Component {
           author: res.data.author,
           description: res.data.description,
           published_date: res.data.published_date,
-          publisher: res.data.publisher
-        })
+          publisher: res.data.publisher,
+        });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error from UpdateBookInfo");
-      })
-  };
+      });
+  }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const data = {
@@ -49,7 +55,7 @@ class UpdateBookInfo extends Component {
       author: this.state.author,
       description: this.state.description,
       published_date: this.state.published_date,
-      publisher: this.state.publisher
+      publisher: this.state.publisher,
     };
 
     axios
@@ -57,11 +63,10 @@ class UpdateBookInfo extends Component {
       .then(res => {
         this.props.history.push('/show-book/' + this.props.match.params.id);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error in UpdateBookInfo!");
-      })
+      });
   };
-
 
   render() {
     return (
@@ -159,7 +164,6 @@ class UpdateBookInfo extends Component {
               <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Book</button>
             </form>
           </div>
-
         </div>
       </div>
     );
