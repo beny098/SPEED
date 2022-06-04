@@ -22,18 +22,14 @@ server.use(express.json({ extended: false }));
 
 server.use("/api/books", SPEED);
 
-if (process.env.env === "prod") {
-    server.use(express.static(path.join(__dirname, "frontend/build")));
 
-    // any request that is not caught by the above routes, send back index.html
-    server.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
-    });
-} else {
-    server.get("/", (req, res) => {
-        res.send("Server running!");
-    });
-}
+server.use(express.static(path.join(__dirname, "frontend/build")));
+
+// any request that is not caught by the above routes, send back index.html
+server.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+});
+
 
 const port = process.env.PORT || 8082;
 
