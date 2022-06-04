@@ -9,11 +9,11 @@ class CreateBook extends Component {
     super();
     this.state = {
       title: '',
-      isbn:'',
-      author:'',
-      description:'',
-      published_date:'',
-      publisher:''
+      isbn: '',
+      author: '',
+      description: '',
+      published_date: '',
+      publisher: ''
     };
   }
 
@@ -34,15 +34,15 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('http://localhost:8082/api/books', data)
+      .post('https://cise-speed-project.herokuapp.com/api/books', data)
       .then(res => {
         this.setState({
           title: '',
-          isbn:'',
-          author:'',
-          description:'',
-          published_date:'',
-          publisher:''
+          isbn: '',
+          author: '',
+          description: '',
+          published_date: '',
+          publisher: ''
         })
         this.props.history.push('/');
       })
@@ -59,13 +59,13 @@ class CreateBook extends Component {
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/" className="btn btn-outline-warning float-left">
-                  Show Journal List
+                Show Journal List
               </Link>
             </div>
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Journal</h1>
               <p className="lead text-center">
-                  Create New Journal
+                Create New Journal
               </p>
 
               <form noValidate onSubmit={this.onSubmit}>
@@ -136,11 +136,11 @@ class CreateBook extends Component {
                 </div>
 
                 <input
-                    type="submit"
-                    className="btn btn-outline-warning btn-block mt-4"
+                  type="submit"
+                  className="btn btn-outline-warning btn-block mt-4"
                 />
               </form>
-          </div>
+            </div>
           </div>
         </div>
       </div>
