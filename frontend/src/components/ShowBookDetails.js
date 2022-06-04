@@ -21,8 +21,8 @@ class showBookDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get("http://localhost:8082/api/books/" + this.props.match.params.id)
-      .then((res) => {
+      .get('https://cise-speed-project.herokuapp.com/api/books/' + this.props.match.params.id)
+      .then(res => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
           book: res.data,
@@ -35,8 +35,8 @@ class showBookDetails extends Component {
 
   onDeleteClick(id) {
     axios
-      .delete("http://localhost:8082/api/books/" + id)
-      .then((res) => {
+      .delete('https://cise-speed-project.herokuapp.com/api/books/' + id)
+      .then(res => {
         this.props.history.push("/");
       })
       .catch((err) => {
@@ -90,8 +90,7 @@ class showBookDetails extends Component {
             </tr>
           </tbody>
         </table>
-      </div>
-    );
+      </div>)
 
     return (
       <div className="ShowBookDetails">
@@ -106,29 +105,23 @@ class showBookDetails extends Component {
             <br />
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Book's Record</h1>
-              <p className="lead text-center">View Book's Info</p>
+              <p className="lead text-center">
+                View Book's Info
+              </p>
               <hr /> <br />
             </div>
           </div>
-          <div>{BookItem}</div>
+          <div>
+            {BookItem}
+          </div>
 
           <div className="row">
             <div className="col-md-6">
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-lg btn-block"
-                onClick={this.onDeleteClick.bind(this, book._id)}
-              >
-                Delete Book
-              </button>
-              <br />
+              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, book._id)}>Delete Book</button><br />
             </div>
 
             <div className="col-md-6">
-              <Link
-                to={`/edit-book/${book._id}`}
-                className="btn btn-outline-info btn-lg btn-block"
-              >
+              <Link to={`/edit-book/${book._id}`} className="btn btn-outline-info btn-lg btn-block">
                 Edit Book
               </Link>
               <br />

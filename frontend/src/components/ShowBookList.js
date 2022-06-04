@@ -20,16 +20,17 @@ class ShowBookList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8082/api/books")
-      .then((res) => {
+      .get('https://cise-speed-project.herokuapp.com/api/books')
+      .then(res => {
         this.setState({
           books: res.data,
         });
       })
-      .catch((err) => {
-        console.log("Error from ShowBookList");
-      });
-  }
+      .catch(err => {
+        console.log('Error from ShowBookList');
+      })
+  };
+
 
   render() {
     const books = this.state.books;

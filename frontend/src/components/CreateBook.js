@@ -20,12 +20,12 @@ class CreateBook extends Component {
   constructor() {
     super();
     this.state = {
-      title: "",
-      isbn: "",
-      author: "",
-      description: "",
-      published_date: "",
-      publisher: "",
+      title: '',
+      isbn: '',
+      author: '',
+      description: '',
+      published_date: '',
+      publisher: ''
     };
   }
 
@@ -46,17 +46,17 @@ class CreateBook extends Component {
     };
 
     axios
-      .post("http://localhost:8082/api/books", data)
-      .then((res) => {
+      .post('https://cise-speed-project.herokuapp.com/api/books', data)
+      .then(res => {
         this.setState({
-          title: "",
-          isbn: "",
-          author: "",
-          description: "",
-          published_date: "",
-          publisher: "",
-        });
-        this.props.history.push("/");
+          title: '',
+          isbn: '',
+          author: '',
+          description: '',
+          published_date: '',
+          publisher: ''
+        })
+        this.props.history.push('/');
       })
       .catch((err) => {
         console.log("Error in CreateBook!");
@@ -76,7 +76,9 @@ class CreateBook extends Component {
             </div>
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Journal</h1>
-              <p className="lead text-center">Create New Journal</p>
+              <p className="lead text-center">
+                Create New Journal
+              </p>
 
               <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
